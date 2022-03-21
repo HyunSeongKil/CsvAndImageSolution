@@ -13,18 +13,30 @@ namespace AddressDataCreator
                 return;
             }
 
+            if (!Directory.Exists(args[1]))
+            {
+                Directory.CreateDirectory(args[1]);
+            }
+
             List<CsvDto> csvDtos = Util.ParseCsvFile(args[0]);
 
             // distinct sgg
             ISet<string> sggSet = GetSggSet(csvDtos);
 
 
+            int i = 0;
+            int tot = 0;
             foreach (string sgg in sggSet.OrderBy(x => x))
             {
                 List<CsvDto> subset = GetSubset(csvDtos, sgg);
 
                 Save(subset, sgg, args[1]);
+
+                i++;
+                tot += subset.Count;
             }
+
+            Util.Log("완료", $"파일수: {i}", $"전체 데이터수: {tot}");
         }
 
         private static void Save(List<CsvDto> subset, string sgg, string outPath)
@@ -36,8 +48,11 @@ namespace AddressDataCreator
 
             subset.ForEach(x => { lines.Add($"{x.Pnu}^{x.Sd}|{x.Sgg}|{x.Emd}|{x.BonNo}|{x.BuNo}^{x.RefinedVt}"); });
 
-            File.WriteAllLines(@$"{outPath}\{sgg}.txt", lines);
-            Console.WriteLine($"{sgg}\t{lines.Count}");
+            string file = @$"{outPath}\{sgg}.txt";
+            File.WriteAllLines(file, lines);
+
+            // 첫번째줄은 제목줄이라 count에서 -1했음
+            Util.Log(file, lines.Count-1);
         }
 
         private static List<CsvDto> GetSubset(List<CsvDto> csvDtos, string sgg)
@@ -62,7 +77,8 @@ namespace AddressDataCreator
             Console.WriteLine("설명)");
             Console.WriteLine("시군구별로 데이터 파일이 생성됩니다.");
             Console.WriteLine("csv는 refinedVt값이 존재해야 합니다.");
-            Console.WriteLine("csv파일의 cell 순서는 CsvDto.cs 파일 참고");
+            Console.WriteLine("csv파일의 cell 순서는 CsvDto.cs 파일 참고\n");
+
 
         }
     }

@@ -65,5 +65,15 @@
                 RefinedVt = int.Parse(arr[16]),
             };
         }
+
+        public static void Log(params object[] args)
+        {
+            Console.Write(DateTime.Now);
+            foreach (object o in args)
+            {
+                Console.Write($"\t{o}");
+            }
+            Console.WriteLine("");
+        }
     }
 }
