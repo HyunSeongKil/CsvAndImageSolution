@@ -1,0 +1,36 @@
+﻿{
+    "DataFile": "e:\\nft_img_0320\\CsvToVtAndServiceable\\ClassLibrary\\Asset\\Data\\서울_양천구.txt",
+    "OutPath": "c:\\temp\\서울_양천구",
+    "VtImages": [
+        {
+            "ImageFile": "e:\\nft_img_0320\\CsvToVtAndServiceable\\ClassLibrary\\Asset\\Image\\01.png",
+            "MinVt": 0,
+            "MaxVt": 1
+        },
+        {
+            "ImageFile": "e:\\nft_img_0320\\CsvToVtAndServiceable\\ClassLibrary\\Asset\\Image\\02.png",
+            "MinVt": 1,
+            "MaxVt": 100000
+        },
+        {
+            "ImageFile": "e:\\nft_img_0320\\CsvToVtAndServiceable\\ClassLibrary\\Asset\\Image\\03.png",
+            "MinVt": 100000,
+            "MaxVt": 200000
+        },
+        {
+            "ImageFile": "e:\\nft_img_0320\\CsvToVtAndServiceable\\ClassLibrary\\Asset\\Image\\04.png",
+            "MinVt": 200000,
+            "MaxVt": 500000
+        },
+        {
+            "ImageFile": "e:\\nft_img_0320\\CsvToVtAndServiceable\\ClassLibrary\\Asset\\Image\\05.png",
+            "MinVt": 500000,
+            "MaxVt": 10000000
+        },
+        {
+            "ImageFile": "e:\\nft_img_0320\\CsvToVtAndServiceable\\ClassLibrary\\Asset\\Image\\06.png",
+            "MinVt": 10000000,
+            "MaxVt": 9876543210
+        }
+    ]
+}

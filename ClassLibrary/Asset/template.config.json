@@ -1,0 +1,37 @@
+﻿{
+    "DataFile": "c:\\temp\\CsvToVtAndServiceable\\Asset\\Data\\서울_이벤트.txt",
+    "OutPath": "c:\\temp\\Out\\서울_이벤트토지",
+    "AsyncCo": 2,
+    "VtImages": [
+        {
+            "ImageFile": "c:\\temp\\CsvToVtAndServiceable\\ClassLibrary\\Asset\\Image\\type-1.png",
+            "MinVt": 0,
+            "MaxVt": 1
+        },
+        {
+            "ImageFile": "c:\\temp\\CsvToVtAndServiceable\\ClassLibrary\\Asset\\Image\\type-2.png",
+            "MinVt": 1,
+            "MaxVt": 100000
+        },
+        {
+            "ImageFile": "c:\\temp\\CsvToVtAndServiceable\\ClassLibrary\\Asset\\Image\\type-3.png",
+            "MinVt": 100000,
+            "MaxVt": 200000
+        },
+        {
+            "ImageFile": "c:\\temp\\CsvToVtAndServiceable\\ClassLibrary\\Asset\\Image\\type-4.png",
+            "MinVt": 200000,
+            "MaxVt": 500000
+        },
+        {
+            "ImageFile": "c:\\temp\\CsvToVtAndServiceable\\ClassLibrary\\Asset\\Image\\type-5.png",
+            "MinVt": 500000,
+            "MaxVt": 10000000
+        },
+        {
+            "ImageFile": "c:\\temp\\CsvToVtAndServiceable\\ClassLibrary\\Asset\\Image\\type-6.png",
+            "MinVt": 10000000,
+            "MaxVt": 9876543210
+        }
+    ]
+}
