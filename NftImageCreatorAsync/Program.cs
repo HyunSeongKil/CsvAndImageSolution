@@ -11,7 +11,7 @@ namespace NftImageCreatorAsync
         {
             PrintHelp();
 
-            if(0 == args.Length)
+            if (0 == args.Length)
             {
                 return;
             }
@@ -20,6 +20,10 @@ namespace NftImageCreatorAsync
 
         }
 
+        /// <summary>
+        /// 처리
+        /// </summary>
+        /// <param name="args"></param>
         private void Process(string[] args)
         {
             NftImageCreateConfig config = ParseConfig(args[0]);
@@ -34,13 +38,12 @@ namespace NftImageCreatorAsync
             // 데이터 읽기
             List<AddressDataDto> dataDtos = ToDtos(config.DataFile);
 
-            double chunkSize = Math.Ceiling((double)(dataDtos.Count / config.AsyncCo));
-
-            IEnumerable<AddressDataDto[]> enums = dataDtos.Chunk(Convert.ToInt16(chunkSize));
+            IEnumerable<AddressDataDto[]> enums = ChunkDatas(dataDtos, config.AsyncCo);
 
             List<Task> tasks = new();
 
-            foreach(AddressDataDto[] dtos in enums)
+
+            foreach (AddressDataDto[] dtos in enums)
             {
                 Task t = ProcessAsync($"t-{tasks.Count}", dtos, config);
                 tasks.Add(t);
@@ -56,6 +59,27 @@ namespace NftImageCreatorAsync
             });
         }
 
+
+        /// <summary>
+        /// 비동기갯수로 전체 데이터를 나누기
+        /// </summary>
+        /// <param name="dataDtos"></param>
+        /// <param name="asyncCo"></param>
+        /// <returns></returns>
+        private IEnumerable<AddressDataDto[]> ChunkDatas(List<AddressDataDto> dataDtos, int asyncCo)
+        {
+            double chunkSize = Math.Ceiling((double)(dataDtos.Count / asyncCo));
+
+            return dataDtos.Chunk(Convert.ToInt16(chunkSize));
+        }
+
+        /// <summary>
+        /// 비동기 처리
+        /// </summary>
+        /// <param name="gbn"></param>
+        /// <param name="dtos"></param>
+        /// <param name="config"></param>
+        /// <returns></returns>
         private Task ProcessAsync(string gbn, AddressDataDto[] dtos, NftImageCreateConfig config)
         {
             return Task.Run(() =>
@@ -64,7 +88,7 @@ namespace NftImageCreatorAsync
                 sw.Start();
                 int i = -1;
 
-                foreach(AddressDataDto dto in dtos)
+                foreach (AddressDataDto dto in dtos)
                 {
                     VtImage vtImage = GetVtImageByVt(dto, config.VtImages);
                     if (null == vtImage)
@@ -73,7 +97,7 @@ namespace NftImageCreatorAsync
                     }
 
                     Image image = Image.FromFile($"{vtImage.ImageFile}");
-                    DrawString(image, GetAddressString(dto) );
+                    DrawString(image, GetAddressString(dto));
 
 
                     // 이미지 파일로 저장
@@ -82,39 +106,47 @@ namespace NftImageCreatorAsync
 
                     if (0 == ++i % 100)
                     {
-                        Log(gbn, $"{i}/{dtos.Length}", $"{sw.ElapsedMilliseconds/1000}초");
+                        Util.Log(gbn, $"{i}/{dtos.Length}", $"{sw.ElapsedMilliseconds / 1000}초");
                     }
                 }
 
                 sw.Stop();
-                Log(gbn, "완료", $"전체(개): {dtos.Length}", $"소요시간(초): {sw.ElapsedMilliseconds/1000}");
+                Util.Log(gbn, "완료", $"전체(개): {dtos.Length}", $"소요시간(초): {sw.ElapsedMilliseconds / 1000}");
             });
         }
 
-        private void Log(params object[] args)
-        {
-            Console.Write(DateTime.Now);
-            foreach (object o in args)
-            {
-                Console.Write($"\t{o}");
-            }
-            Console.WriteLine("");
-        }
+        //private void Log(params object[] args)
+        //{
+        //    Console.Write(DateTime.Now);
+        //    foreach (object o in args)
+        //    {
+        //        Console.Write($"\t{o}");
+        //    }
+        //    Console.WriteLine("");
+        //}
 
-        private void SaveImage(AddressDataDto dataDto, NftImageCreateConfig config, VtImage vtImage, Image image)
-        {
-            if (null == image)
-            {
-                return;
-            }
 
+        /// <summary>
+        /// 이미지 파일로 저장
+        /// </summary>
+        /// <param name="dataDto"></param>
+        /// <param name="config"></param>
+        /// <param name="vtImage"></param>
+        /// <param name="image"></param>
+        private void SaveImage(AddressDataDto dataDto, NftImageCreateConfig config, VtImage vtImage, Image? image)
+        {
             //
             string filename = $"{dataDto.Pnu}_{dataDto.Vt}_{Path.GetFileName(vtImage.ImageFile)}";
 
             // 이미지 파일로 저장
-            image.Save($"{config.OutPath}/{filename}");
+            image?.Save($"{config.OutPath}/{filename}");
         }
 
+        /// <summary>
+        /// 이미지에 문자열 쓰기
+        /// </summary>
+        /// <param name="image"></param>
+        /// <param name="str"></param>
         private void DrawString(Image image, string str)
         {
             Graphics g = Graphics.FromImage(image);
@@ -145,6 +177,12 @@ namespace NftImageCreatorAsync
             return $"-{bubun}";
         }
 
+        /// <summary>
+        /// vt에 맞는 이미지 정보 조회
+        /// </summary>
+        /// <param name="dataDto"></param>
+        /// <param name="vtImages"></param>
+        /// <returns></returns>
         private VtImage? GetVtImageByVt(AddressDataDto dataDto, List<VtImage> vtImages)
         {
             return vtImages.Find(x =>
@@ -152,15 +190,20 @@ namespace NftImageCreatorAsync
             );
         }
 
-        private List<AddressDataDto> ToDtos(string dataFile)
+
+        /// <summary>
+        /// csv파일 파싱하여 Dto 목록으로 변환하기
+        /// </summary>
+        /// <param name="csvFile"></param>
+        /// <returns></returns>
+        private List<AddressDataDto> ToDtos(string csvFile)
         {
-            string[] lines = File.ReadAllLines(dataFile);
+            string[] lines = File.ReadAllLines(csvFile);
 
             List<AddressDataDto> dataDtos = new();
             foreach (string line in lines)
             {
-                // 공백
-                if (line.Trim().Length == 0)
+                if (null == line || 0 == line.Trim().Length)
                 {
                     continue;
                 }
@@ -176,8 +219,8 @@ namespace NftImageCreatorAsync
                 dataDtos.Add(dataDto);
 
                 dataDto.Pnu = arr[0];
-                dataDto.Vt = int.Parse(arr[2]);
                 BindAddress(dataDto, arr[1].Split('|'));
+                dataDto.Vt = int.Parse(arr[2]);
             }
 
             return dataDtos;
@@ -205,6 +248,11 @@ namespace NftImageCreatorAsync
             return true;
         }
 
+        /// <summary>
+        /// json파일 파싱 후 dto에 담기
+        /// </summary>
+        /// <param name="configFile"></param>
+        /// <returns></returns>
         private NftImageCreateConfig ParseConfig(string configFile)
         {
             string json = File.ReadAllText(configFile);
@@ -226,9 +274,9 @@ namespace NftImageCreatorAsync
             }
 
 
-            Log("CsvFile", config.DataFile);
-            Log("OutPath", config.OutPath);
-            Log("VtImages", config.VtImages.Count);
+            Util.Log("CsvFile", config.DataFile);
+            Util.Log("OutPath", config.OutPath);
+            Util.Log("VtImages", config.VtImages.Count);
 
             return config;
         }

@@ -22,15 +22,3 @@ E:\nft_img_0320\CsvToVtAndServiceable\ClassLibrary\obj\Debug\net6.0\ClassLibrary
 E:\nft_img_0320\CsvToVtAndServiceable\ClassLibrary\obj\Debug\net6.0\refint\ClassLibrary.dll
 E:\nft_img_0320\CsvToVtAndServiceable\ClassLibrary\obj\Debug\net6.0\ClassLibrary.pdb
 E:\nft_img_0320\CsvToVtAndServiceable\ClassLibrary\obj\Debug\net6.0\ref\ClassLibrary.dll
-D:\work\sdt\CsvAndImageSolution\ClassLibrary\bin\Debug\net6.0\ClassLibrary.deps.json
-D:\work\sdt\CsvAndImageSolution\ClassLibrary\bin\Debug\net6.0\ClassLibrary.dll
-D:\work\sdt\CsvAndImageSolution\ClassLibrary\bin\Debug\net6.0\ClassLibrary.pdb
-D:\work\sdt\CsvAndImageSolution\ClassLibrary\obj\Debug\net6.0\ClassLibrary.csproj.AssemblyReference.cache
-D:\work\sdt\CsvAndImageSolution\ClassLibrary\obj\Debug\net6.0\ClassLibrary.GeneratedMSBuildEditorConfig.editorconfig
-D:\work\sdt\CsvAndImageSolution\ClassLibrary\obj\Debug\net6.0\ClassLibrary.AssemblyInfoInputs.cache
-D:\work\sdt\CsvAndImageSolution\ClassLibrary\obj\Debug\net6.0\ClassLibrary.AssemblyInfo.cs
-D:\work\sdt\CsvAndImageSolution\ClassLibrary\obj\Debug\net6.0\ClassLibrary.csproj.CoreCompileInputs.cache
-D:\work\sdt\CsvAndImageSolution\ClassLibrary\obj\Debug\net6.0\ClassLibrary.dll
-D:\work\sdt\CsvAndImageSolution\ClassLibrary\obj\Debug\net6.0\refint\ClassLibrary.dll
-D:\work\sdt\CsvAndImageSolution\ClassLibrary\obj\Debug\net6.0\ClassLibrary.pdb
-D:\work\sdt\CsvAndImageSolution\ClassLibrary\obj\Debug\net6.0\ref\ClassLibrary.dll
