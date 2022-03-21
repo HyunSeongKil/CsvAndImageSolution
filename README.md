@@ -1,6 +1,6 @@
 # 정보
 	- 언어 : C#
-	- IDE : Visual Studio Community 2022 preview
+	- IDE : Visual Studio Community 2022(64-bit) preview
 	- Author : HyunSeongKil
 	- Date : 2022-03-00
 
@@ -18,10 +18,13 @@
 
 # NftImageCreatorAsync
 	- Date : 2022-03-20
-	- nft 이미지를 생성하는 프로그램
+	- 이미지에 텍스트를 쓰는 프로그램
+	- A이미지를 읽어 텍스트를 이미지에 쓴 후 B이미지로 저장
 	- AddressDataCreator에 의해 생성된 데이터 파일을 참고하여 이미지를 생성함
 	- 성능 향상을 위해 Task(비동기 처리) 도입. default:2
 	- config파일 사양은 ClassLibrary.Asset.template.config.json 파일 참고
+	- 1000개 이미지 생성하는데 약 60초정도 소요 (i5, 8GB, SDD)
+	- SSD에서 작성할것을 권고함(HDD는 SSD보다 10이상 더 느림)
 	- 사용법
 		dotnet NftImageCreatorAsync.dll args[0]
 			args[0] : config 파일 전체 경로
