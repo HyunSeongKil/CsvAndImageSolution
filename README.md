@@ -1,32 +1,43 @@
-# Á¤º¸
-	- ¾ğ¾î : C#
+# ì •ë³´
+	- ì–¸ì–´ : C#
 	- IDE : Visual Studio Community 2022(64-bit) preview
 	- Author : HyunSeongKil
 	- Date : 2022-03-00
 
 # AddressDataCreator
 	- Date : 2022-03-20
-	- csv¿¡¼­ µ¥ÀÌÅÍ¸¦ ÃßÃâÇÏ¿© ÁÖ¼Ò µ¥ÀÌÅÍ »ı¼º¿ë µ¥ÀÌÅÍ ÆÄÀÏÀ» »ı¼ºÇÏ´Â ÇÁ·Î±×·¥	
-	- csvÆÄÀÏÀÇ »ç¾çÀº ClassLibrary.Asset.template.ÁÖ¼Òµ¥ÀÌÅÍ»ı¼º¿ë.csv ÆÄÀÏ Âü°í
-	- csvÆÄÀÏ ºĞ¼® ÈÄ ½Ã±º±¸º°·Î µ¥ÀÌÅÍ ÆÄÀÏÀ» ³ª´©¾î »ı¼º. ¿¹)°­µ¿±¸.txt °­¼­±¸.txt ...
-	- »ç¿ë¹ı
+	- csvì—ì„œ ë°ì´í„°ë¥¼ ì¶”ì¶œí•˜ì—¬ ì£¼ì†Œ ë°ì´í„° ìƒì„±ìš© ë°ì´í„° íŒŒì¼ì„ ìƒì„±í•˜ëŠ” í”„ë¡œê·¸ë¨	
+	- csvíŒŒì¼ì˜ ì‚¬ì–‘ì€ ClassLibrary.Asset.template.ì£¼ì†Œë°ì´í„°ìƒì„±ìš©.csv íŒŒì¼ ì°¸ê³ 
+	- csvíŒŒì¼ ë¶„ì„ í›„ ì‹œêµ°êµ¬ë³„ë¡œ ë°ì´í„° íŒŒì¼ì„ ë‚˜ëˆ„ì–´ ìƒì„±. ì˜ˆ)ê°•ë™êµ¬.txt ê°•ì„œêµ¬.txt ...
+	- ì‚¬ìš©ë²•
 		dotnet AddressDataCreator.dll args[0] args[1]
-			args[0] : csvÆÄÀÏ ÀüÃ¼ °æ·Î
-			args[1] : °á°ú ÆÄÀÏÀÌ ÀúÀåµÉ °æ·Î
-	- ¿¹½Ã
+			args[0] : csvíŒŒì¼ ì „ì²´ ê²½ë¡œ
+			args[1] : ê²°ê³¼ íŒŒì¼ì´ ì €ì¥ë  ê²½ë¡œ
+	- ì˜ˆì‹œ
 		dotnet AddressDataCreator.dll c:\temp\seoul.csv c:\temp\seoul
 
 # NftImageCreatorAsync
 	- Date : 2022-03-20
-	- ÀÌ¹ÌÁö¿¡ ÅØ½ºÆ®¸¦ ¾²´Â ÇÁ·Î±×·¥
-	- AÀÌ¹ÌÁö¸¦ ÀĞ¾î ÅØ½ºÆ®¸¦ ÀÌ¹ÌÁö¿¡ ¾´ ÈÄ BÀÌ¹ÌÁö·Î ÀúÀå
-	- AddressDataCreator¿¡ ÀÇÇØ »ı¼ºµÈ µ¥ÀÌÅÍ ÆÄÀÏÀ» Âü°íÇÏ¿© ÀÌ¹ÌÁö¸¦ »ı¼ºÇÔ
-	- ¼º´É Çâ»óÀ» À§ÇØ Task(ºñµ¿±â Ã³¸®) µµÀÔ. default:2
-	- configÆÄÀÏ »ç¾çÀº ClassLibrary.Asset.template.config.json ÆÄÀÏ Âü°í
-	- 1000°³ ÀÌ¹ÌÁö »ı¼ºÇÏ´Âµ¥ ¾à 60ÃÊÁ¤µµ ¼Ò¿ä (i5, 8GB, SDD)
-	- SSD¿¡¼­ ÀÛ¼ºÇÒ°ÍÀ» ±Ç°íÇÔ(HDD´Â SSDº¸´Ù 10ÀÌ»ó ´õ ´À¸²)
-	- »ç¿ë¹ı
+	- ì´ë¯¸ì§€ì— í…ìŠ¤íŠ¸ë¥¼ ì“°ëŠ” í”„ë¡œê·¸ë¨
+	- Aì´ë¯¸ì§€ë¥¼ ì½ì–´ í…ìŠ¤íŠ¸ë¥¼ ì´ë¯¸ì§€ì— ì“´ í›„ Bì´ë¯¸ì§€ë¡œ ì €ì¥
+	- AddressDataCreatorì— ì˜í•´ ìƒì„±ëœ ë°ì´í„° íŒŒì¼ì„ ì°¸ê³ í•˜ì—¬ ì´ë¯¸ì§€ë¥¼ ìƒì„±í•¨
+	- ì„±ëŠ¥ í–¥ìƒì„ ìœ„í•´ Task(ë¹„ë™ê¸° ì²˜ë¦¬) ë„ì…. default:2
+	- configíŒŒì¼ ì‚¬ì–‘ì€ ClassLibrary.Asset.template.config.json íŒŒì¼ ì°¸ê³ 
+	- 1000ê°œ ì´ë¯¸ì§€ ìƒì„±í•˜ëŠ”ë° ì•½ 60ì´ˆì •ë„ ì†Œìš” (i5, 8GB, SDD)
+	- SSDì—ì„œ ì‘ì„±í• ê²ƒì„ ê¶Œê³ í•¨(HDDëŠ” SSDë³´ë‹¤ 10ì´ìƒ ë” ëŠë¦¼)
+	- ì‚¬ìš©ë²•
 		dotnet NftImageCreatorAsync.dll args[0]
-			args[0] : config ÆÄÀÏ ÀüÃ¼ °æ·Î
-	- ¿¹½Ã
+			args[0] : config íŒŒì¼ ì „ì²´ ê²½ë¡œ
+	- ì˜ˆì‹œ
 		dotnet NftImageCreatorAsync.dll c:\temp\config.json
+		
+# PnuAndTokenIdInserter
+	- Date : 2022-03-25
+	- ì‹ í•œdsì—ì„œ ë¯¼íŒ… ì™„ë£Œí•œ í›„ ì œê³µí•˜ëŠ” csvíŒŒì¼ì„ ì´ìš©í•˜ì—¬ land_nft_mapngì— insertí•˜ëŠ” í”„ë¡œê·¸ë¨
+	- config íŒŒì¼ : ClassLibrary\Asset\pnu_tokenid.config.json íŒŒì¼ ì°¸ê³ 
+	- csv íŒŒì¼ : ClassLibrary\Asset\template.pnu_tokenid.csv íŒŒì¼ ì°¸ê³ 
+	- ì‚¬ìš©ë²•
+		dotnet PnuAndTokenIdInserter.dll args[0]
+			args[0] : config íŒŒì¼ ì „ì²´ ê²½ë¡œ
+	- ì˜ˆì‹œ
+		dotnet PnuAndTokenIdInserter.dll .\pnu_tokenid.config.json
