@@ -1,0 +1,8 @@
+﻿{
+    "CsvFile": ".\\pnu_tokenid.csv",
+    "DbHost": "ip",
+    "DbPort": "port",
+    "DbUsername": "username",
+    "DbPassword": "password",
+    "DbDatabase": "database"
+}
