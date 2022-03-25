@@ -106,9 +106,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\work\\sdt\\CsvAndImageSolution\\PnuAndTokenIdInserter\\PnuAndTokenIdInserter.csproj",
-      "projectName": "PnuAndTokenIdInserter",
-      "projectPath": "D:\\work\\sdt\\CsvAndImageSolution\\PnuAndTokenIdInserter\\PnuAndTokenIdInserter.csproj",
+      "projectUniqueName": "D:\\work\\sdt\\CsvAndImageSolution\\PnuAndTokenIdInserter\\LandNftMapper.csproj",
+      "projectName": "LandNftMapper",
+      "projectPath": "D:\\work\\sdt\\CsvAndImageSolution\\PnuAndTokenIdInserter\\LandNftMapper.csproj",
       "packagesPath": "C:\\Users\\aha14\\.nuget\\packages\\",
       "outputPath": "D:\\work\\sdt\\CsvAndImageSolution\\PnuAndTokenIdInserter\\obj\\",
       "projectStyle": "PackageReference",

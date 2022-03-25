@@ -4,5 +4,6 @@
     "DbPort": "port",
     "DbUsername": "username",
     "DbPassword": "password",
-    "DbDatabase": "database"
+    "DbDatabase": "database",
+    "AsynCo": 2
 }

@@ -1,8 +1,0 @@
-﻿{
-    "CsvFile": ".\\pnu_tokenid.csv",
-    "DbHost": "112.175.32.188",
-    "DbPort": "5432",
-    "DbUsername": "vaivsquare",
-    "DbPassword": "password",
-    "DbDatabase": "vaivsquare"
-}

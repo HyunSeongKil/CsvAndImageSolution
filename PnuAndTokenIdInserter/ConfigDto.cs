@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PnuAndTokenIdInserter
+namespace LandNftMapper
 {
     internal class ConfigDto
     {
@@ -16,9 +16,11 @@ namespace PnuAndTokenIdInserter
 
         public string DbDatabase { get; set; }
 
+        public int AsyncCo { get; set; }
+
         override public string ToString()
         {
-            return $"CsvFile: {CsvFile}\tDbHost: {DbHost}\tDbPort: {DbPort}\tDbUsername: {DbUsername}\tDbPassword: {DbPassword}\tDbDatabase: {DbDatabase}";
+            return $"CsvFile: {CsvFile}\tDbHost: {DbHost}\tDbPort: {DbPort}\tDbUsername: {DbUsername}\tDbPassword: {DbPassword}\tDbDatabase: {DbDatabase}\tAsynCo: {AsyncCo}";
         }
     }
 }
