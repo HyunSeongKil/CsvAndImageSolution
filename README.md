@@ -31,13 +31,14 @@
 	- 예시
 		dotnet NftImageCreatorAsync.dll c:\temp\config.json
 		
-# PnuAndTokenIdInserter
+# LandNftMapper
 	- Date : 2022-03-25
 	- 신한ds에서 민팅 완료한 후 제공하는 csv파일을 이용하여 land_nft_mapng에 insert하는 프로그램
 	- config 파일 : ClassLibrary\Asset\pnu_tokenid.config.json 파일 참고
 	- csv 파일 : ClassLibrary\Asset\template.pnu_tokenid.csv 파일 참고
+	- 성능 : task 5개, 데이터 1000건일 때 3초 소요 (i5, 8GB)
 	- 사용법
-		dotnet PnuAndTokenIdInserter.dll args[0]
+		dotnet LandNftMapper.dll args[0]
 			args[0] : config 파일 전체 경로
 	- 예시
-		dotnet PnuAndTokenIdInserter.dll .\pnu_tokenid.config.json
+		dotnet LandNftMapper.dll .\pnu_tokenid.config.json
